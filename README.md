@@ -3,7 +3,7 @@ frontend
 
 ### Install system requirements
 
-  First of all, install nodejs
+  First of all, install nodejs, then:
 
     npm install -g grunt grunt-cli
 
