@@ -1,5 +1,6 @@
-/**
- * Module dependencies.
+/*
+ * Daniele Brugnara
+ * RHOK 2013 - Trento
  */
 
 var express = require('express')
@@ -8,6 +9,8 @@ var express = require('express')
     , path = require('path')
     , RestClient = require("./modules/restClient")
     , Walking = require("./modules/walking")
+    , User = require("./modules/user")
+    , Poi = require("./modules/poi")
 ;
 
 var app = express();
@@ -41,6 +44,12 @@ io.sockets.on('connection', function(socket) {
             console.log("Walking setted");
         });
         //
-
+        user = new User(client, socket, function() {
+            console.log("User setted!");
+        })
+        //
+        poi = new Poi(client, socket, function() {
+            console.log("Poi structure setted");
+        })
     });
 });

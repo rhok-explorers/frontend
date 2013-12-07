@@ -1,3 +1,7 @@
+/*
+ * Daniele Brugnara
+ * RHOK 2013 - Trento
+ */
 
 var restify = require("restify");
 

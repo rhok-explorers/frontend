@@ -1,12 +1,13 @@
 {
-  "name": "frontend",
-  "version": "0.0.1",
-  "ignore": [
-    "**/.*",
-    "node_modules",
-    "components"
-  ],
-  "dependencies": {
-    "bootstrap-sass": "latest"
-  }
+    "name": "frontend",
+    "version": "0.0.1",
+    "ignore": [
+        "**/.*",
+        "node_modules",
+        "components"
+    ],
+    "dependencies": {
+        "bootstrap-sass": "latest",
+        "lodash": "latest"
+    }
 }

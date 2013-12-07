@@ -1,3 +1,8 @@
+/*
+ * Daniele Brugnara
+ * RHOK 2013 - Trento
+ */
+
 var Walking = function(client, socket, next) {
 
     console.log("Initializing walking api...");
