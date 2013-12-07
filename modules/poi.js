@@ -5,11 +5,13 @@
 
 var Poi = function(client, socket, next) {
 
-    socket.on("poi.add", function(data) {
+    socket.on("poi.set", function(data) {
         console.log("Adding a new poi with data: " + data);
-        socket.post("/poi", data, function(err, req, res, obj) {
+        client.post("/poi/" + data.walkingId, data.poi, function(err, req, res, obj) {
             console.log("Poi added!");
             console.log("%j", obj);
+            //
+            socket.emit("poi.data", obj);
         })
     });
 

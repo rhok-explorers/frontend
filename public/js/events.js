@@ -19,7 +19,7 @@ var Events = {
             });
         })
         //
-        socket.on("poi.data", function(poi) {
+        socket.on("poi.data", function(data) {
             console.log("Poi data received: " + data);
         })
     }

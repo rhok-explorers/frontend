@@ -1,3 +1,16 @@
 <script src="components/lodash/dist/lodash.min.js"></script>
 <script src="/socket.io/socket.io.js"></script>
 <script src="js/events.js"></script>
+        <button onclick='socket.emit("walking.set", {
+            name: "Percorso 2",
+            description: "Prova inserimento forzoso 2",
+            level: 2
+        });'>Add event</button>
+        <button onclick='socket.emit("poi.set", {
+            poi: {
+                name: "poi 2",
+                description: "POIPOI Prova inserimento forzoso 2",
+                level: 2
+            },
+            walkinkId: 123
+        });'>Add POI</button>

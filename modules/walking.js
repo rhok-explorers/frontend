@@ -16,6 +16,8 @@ var Walking = function(client, socket, next) {
             }
             console.log("New walking!");
             console.log("%j", obj);
+            //
+            socket.emit("walking.data", obj);
         });
     });
     //
