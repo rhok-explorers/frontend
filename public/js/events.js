@@ -13,11 +13,7 @@ var Events = {
             level: "1"
         });
         //
-        socket.on("walking.data", function(walkings) {
-            _.forEach(walkings, function(walking) {
-                console.log(walking);
-            });
-        })
+
         //
         socket.on("poi.data", function(data) {
             console.log("Poi data received: " + data);

@@ -1,1 +1,192 @@
-routes.html
+<style>
+    #map_canvas {
+        width: 500px;
+        height: 400px;
+    }
+</style>
+
+<div class="row">
+    <nav class="navbar navbar-default" role="navigation">
+        <a class="navbar-brand" href="#"><h1>Little Explorers</h1></a>
+
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Link</a></li>
+                <li><a href="#">Link</a></li>
+                <li><a href="#">Link</a></li>
+            </ul>
+
+        </div>
+        <!-- /.navbar-collapse -->
+    </nav>
+</div>
+<div class="row">
+    <h3> Il tuo viaggio </h3>
+</div>
+<div class="row step">
+
+    <!-- <div id="path" class="col-md-1 col-sm-offset-2"></div>
+    <div class="col-md-1" data-toggle="modal" data-target="#myModal"><img
+            src="components/bootstrap-sass/dist/images/black_336x280.gif" alt="..." class="img-thumbnail"></div>
+</div> -->
+    <div class="modal fade" id="modalWalking" tabindex="-1" role="dialog" aria-labelledby="modalWalkingTitle"
+         aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="modalWalkingTitle">Modal title</h4>
+                </div>
+                <div class="modal-body">
+                    ...
+                </div>
+
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+
+    <!--
+        <div class="row step">
+
+            <div id="path" class="col-md-1 col-sm-offset-2"></div>
+            <div class="col-md-1"><img src="components/bootstrap-sass/dist/images/black_336x280.gif" alt="..."
+                                       class="img-thumbnail"></div>
+        </div>
+        <div class="row step">
+
+            <div id="path" class="col-md-1 col-sm-offset-2"></div>
+            <div class="col-md-1"><img src="components/bootstrap-sass/dist/images/black_336x280.gif" alt="..."
+                                       class="img-thumbnail"></div>
+        </div>-->
+
+</div>
+<div class="row">
+
+    <p>{{ selectedWalkingId }}</p>
+
+    <div id="map_canvas" class="col-md-7"></div>
+
+    <div class="col-md-3 col-sm-offset-1">
+        <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#viaggio">Aggiungi walking</button>
+
+        <div id="walking_list" class="list-group">
+            <a ng-repeat="route in routes" href="javascript:void(0)" class="list-group-item"
+               ng-click="selectWalking(route.id)" >{{ route.id }}</a>
+        </div>
+    </div>
+    <div class="modal fade" id="viaggio" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">Titolo</h4>
+                </div>
+
+                <div class="modal-body">
+                    <div class="form-horizontal" role="form">
+                        <div class="form-group">
+                            <label for="walkingName" class="col-sm-3 control-label">Nome</label>
+
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="walkingName" ng-model="walking.name">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="walkingDesc" class="col-sm-3 control-label">Descrizione</label>
+
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="walkingDesc" ng-model="walking.description">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="walkingLevel" class="col-sm-3 control-label">livello</label>
+
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="walkingLevel" ng-model="walking.level">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary"
+                            ng-click="addWalking()">
+                        Save changes
+                    </button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+
+    <div class="modal fade" id="modalPoi" tabindex="-1" role="dialog" aria-labelledby="modalPoiTitle"
+         aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="modalPoiTitle">Aggiungi tappa</h4>
+                </div>
+
+                <div class="modal-body">
+                    <div class="form-horizontal" role="form">
+                        <div class="form-group">
+                            <label for="modalPoiName" class="col-sm-3 control-label">Nome</label>
+
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="modalPoiName" ng-model="poi.name">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="modalPoiDesc" class="col-sm-3 control-label">Descrizione</label>
+
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="modalPoiDesc" ng-model="poi.description">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="modalPoiCoords" class="col-sm-3 control-label">Coordinate</label>
+
+                            <div class="col-sm-9">
+                                <input disabled type="text" class="form-control" id="modalPoiCoords" ng-model="poi.coords">
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary"
+                            onclick="addPoi()">
+                        Save changes
+                    </button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+</div>
+<button onclick='socket.emit("walking.set", {
+            name: "Percorso 2",
+            description: "Prova inserimento forzoso 2",
+            level: 2
+        });'>Add event
+</button>
+<button onclick='socket.emit("poi.set", {
+            poi: {
+                name: "poi 2",
+                description: "POIPOI Prova inserimento forzoso 2",
+                level: 2
+            },
+            walkinkId: 123
+        });'>Add POI
+</button>
