@@ -21,7 +21,9 @@ html {
 .row {
 	margin-top: 5px;
 }
-
+#bottom {
+	margin-top: 25px;
+}
 .nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
 	
 	background-color:  #d91313;
@@ -38,10 +40,14 @@ html {
 
 .nav {
 	padding-top: 2em;
+	float: right;
 }
 
 .form-horizontal {
-	
+	margin-top: 2em;
+}
+
+#login {
 	border-left:2px solid #a0a0a0;
 	
 	padding:7px;
