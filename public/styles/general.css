@@ -27,10 +27,6 @@ html {
 	background-color:  #d91313;
 }
 
-.btn-success:hover, .btn-success:focus, .btn-success:active, .btn-success.active,.btn-success {
-	
-	background-color: #d91313;
-}
 
 .row h1 {
 	color: #d91313;
@@ -41,8 +37,7 @@ html {
 }
 
 .nav {
-	display: inline-block;
-	float: right;
+	padding-top: 2em;
 }
 
 .form-horizontal {
@@ -58,16 +53,10 @@ html {
 	margin: 0;
 }
 
-/*** Viaggio.html ***/
-#path {
-	background-image:url('../images/path.png');
-	background-repeat:no-repeat;
-	background-position:right; 
-	height: 50px;
+#walking_list {
+	margin-top: 5px;
 }
 
-.step{
-	margin-top: 0;
+.selected {
+	color: green;
 }
-
-
