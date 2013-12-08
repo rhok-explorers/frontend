@@ -8,7 +8,7 @@
 
     <div class="row">
 
-    <a href="#"><h1>Little Explorers</h1></a>
+    <h1>Little Explorers</h1>
 
     <ul class="nav nav-pills">
         <li class="active"><a href="#">Link</a></li>
@@ -19,48 +19,12 @@
 
 
 </div>
-<div class="row">
+<div class="row" id="title">
     <h3> Il tuo viaggio </h3>
 </div>
 <div class="row step">
 
-    <!-- <div id="path" class="col-md-1 col-sm-offset-2"></div>
-    <div class="col-md-1" data-toggle="modal" data-target="#myModal"><img
-            src="components/bootstrap-sass/dist/images/black_336x280.gif" alt="..." class="img-thumbnail"></div>
-</div> -->
-    <div class="modal fade" id="modalWalking" tabindex="-1" role="dialog" aria-labelledby="modalWalkingTitle"
-         aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h4 class="modal-title" id="modalWalkingTitle">Modal title</h4>
-                </div>
-                <div class="modal-body">
-                    ...
-                </div>
-
-            </div>
-            <!-- /.modal-content -->
-        </div>
-        <!-- /.modal-dialog -->
-    </div>
-    <!-- /.modal -->
-
-    <!--
-        <div class="row step">
-
-            <div id="path" class="col-md-1 col-sm-offset-2"></div>
-            <div class="col-md-1"><img src="components/bootstrap-sass/dist/images/black_336x280.gif" alt="..."
-                                       class="img-thumbnail"></div>
-        </div>
-        <div class="row step">
-
-            <div id="path" class="col-md-1 col-sm-offset-2"></div>
-            <div class="col-md-1"><img src="components/bootstrap-sass/dist/images/black_336x280.gif" alt="..."
-                                       class="img-thumbnail"></div>
-        </div>-->
-
+    
 </div>
 <div class="row">
 
@@ -69,14 +33,14 @@
     <div id="map_canvas" class="col-xs-9"></div>
 
     <div class="col-xs-3">
-        <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#viaggio">Aggiungi walking</button>
+        <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modalWalking">Aggiungi walking</button>
 
         <div id="walking_list" class="list-group">
             <a ng-repeat="route in routes" href="javascript:void(0)" class="list-group-item"
                ng-click="selectWalking(route.id)" >{{ route.id }}</a>
         </div>
     </div>
-    <div class="modal fade" id="viaggio" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal fade" id="modalWalking" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
 

@@ -18,7 +18,7 @@ html {
 	max-width: 960px;
 }
 .row {
-	margin-top: 15px;
+	margin-top: 5px;
 }
 
 .nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
@@ -33,8 +33,10 @@ html {
 
 .row h1 {
 		color: #d91313;
-		font-size: 5em;
+		font-size: 4em;
 		font-family:"bombing";
+		letter-spacing:5px;
+		padding:0;
 }
 
 .nav {
@@ -50,6 +52,10 @@ html {
 	padding-left:15px;
 }
 
+#title {
+	padding: 0;
+	margin: 0;
+}
 
 /*** Viaggio.html ***/
 #path {
