@@ -37,7 +37,7 @@
 
         <div id="walking_list" class="list-group">
             <div class="list-group-item" ng-repeat="route in routes" >
-                <button ng-click="selectWalking(route.id)"  class="btn" ng-class= "{'btn-success': route.id == selectedWalkingId }">{{ route.name }}</button><span class="badge">{{route.count}}</span>
+                <button ng-click="selectWalking(route)"  class="btn" ng-class= "{'btn-success': route.id == selectedWalkingId }">{{ route.name }}</button><span class="badge">{{route.count}}</span>
             </div>
         </div>
     </div>
