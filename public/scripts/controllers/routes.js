@@ -34,6 +34,14 @@ angular.module('ngApp')
                 position: location,
                 map: map
             });
+            google.maps.event.addListener(marker, 'click', function(event) {
+                console.log(JSON.stringify(data));
+                $scope.$apply(function() {
+                    $scope.selectedPoi = data;
+                    $("#modalQuiz").modal();
+                });
+            })
+            //
             $scope.markers.push(marker);
         }
         //
@@ -47,6 +55,7 @@ angular.module('ngApp')
         initialize();
         $scope.routes = [];
         $scope.selectedWalkingId = null;
+        $scope.selectedPoi = null;
         //
         $scope.selectWalking = function(walkingId) {
             $scope.selectedWalkingId = walkingId;
@@ -118,10 +127,7 @@ angular.module('ngApp')
             $scope.$apply(function() {
                 console.log("Received poi data: " + JSON.stringify(poi));
                 // add poi to map
-                $scope.placeMarker(new google.maps.LatLng(poi.coords[0] + 0, poi.coords[1] + 0), {
-                    name: poi.name,
-                    description: poi.description
-                });
+                $scope.placeMarker(new google.maps.LatLng(poi.coords[0] + 0, poi.coords[1] + 0), poi);
             })
         })
     });
