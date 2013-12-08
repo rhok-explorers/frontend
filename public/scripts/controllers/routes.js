@@ -68,6 +68,16 @@ angular.module('ngApp')
             $scope.poi = {};
         }
         //
+        $scope.addAnswer = function() {
+            if (!$scope.poi.question) {
+                $scope.poi.question = {};
+            }
+            if (!$scope.poi.question.answers) {
+                $scope.poi.question.answers = [];
+            }
+            $scope.poi.question.answers.push({})
+        }
+        //
         socket.on("walking.data", function(walkings) {
             $scope.$apply(function() {
                 _.forEach(walkings, function(walking) {

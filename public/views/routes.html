@@ -105,6 +105,7 @@ aria-hidden="true">
                         <input type="text" class="form-control" id="modalPoiName" ng-model="poi.name">
                     </div>
                 </div>
+
                 <div class="form-group">
                     <label for="modalPoiDesc" class="col-sm-3 control-label">Descrizione</label>
 
@@ -112,12 +113,56 @@ aria-hidden="true">
                         <input type="text" class="form-control" id="modalPoiDesc" ng-model="poi.description">
                     </div>
                 </div>
+
                 <div class="form-group">
-                    <label for="modalPoiCoords" class="col-sm-3 control-label">Coordinate</label>
+                    <label for="modalPoiLocationType" class="col-sm-3 control-label">Descrizione</label>
 
                     <div class="col-sm-9">
-                        <input disabled type="text" class="form-control" id="modalPoiCoords" ng-model="poi.coords">
+                        <input type="text" class="form-control" id="modalPoiLocationType" ng-model="poi.locationType" placeholder="Natura, arte, ecc">
                     </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="modalPoiIsInteractive" class="col-sm-3 control-label">E' interattivo?</label>
+
+                    <div class="col-sm-9">
+                        <input type="checkbox" class="" id="modalPoiIsInteractive" ng-model="poi.isInteractive" >
+                    </div>
+                </div>
+
+                <div ng-show="poi.isInteractive">
+                    <div class="form-group">
+                        <label for="modalPoiQuestionText" class="col-sm-3 control-label">Domanda</label>
+
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="modalPoiQuestionText" ng-model="poi.question.text">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="modalPoiQuestionPoint" class="col-sm-3 control-label">Punti domanda</label>
+
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="modalPoiQuestionPoint" ng-model="poi.question.points">
+                        </div>
+                    </div>
+
+                    <button ng-click="addAnswer()">Aggiunti possibile risposta</button>
+
+
+                    <div class="form-group" ng-repeat="answer in poi.question.answers">
+                        <label for="modalPoiQuestionAnswer_{{ $index }}" class="col-sm-3 control-label">Testo</label>
+
+                        <div class="col-sm-9">
+                            <div class="input-group">
+                                  <span class="input-group-addon">
+                                    <input type="radio" name="modalPoiQuestionAnswerCorrect" ng-value="$index">
+                                  </span>
+                                <input type="text" class="form-control" id="modalPoiQuestionAnswer_{{ $index }}" ng-model="answer.text">
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
 
             </div>
