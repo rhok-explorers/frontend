@@ -13,6 +13,8 @@ var User = function(client, socket, next) {
             } else {
                 console.log("User logged in!");
                 console.log("%j", obj);
+                // send session token to frontend
+                socket.emit("user.loggedin", obj);
             }
         })
     });
