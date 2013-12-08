@@ -14,7 +14,9 @@ html {
 	src: url('../fonts/Bombing.ttf');
 }
 
-
+.container {
+	max-width: 960px;
+}
 .row {
 	margin-top: 15px;
 }
@@ -31,7 +33,7 @@ html {
 
 .row h1 {
 		color: #d91313;
-		font-size: 6em;
+		font-size: 5em;
 		font-family:"bombing";
 }
 
