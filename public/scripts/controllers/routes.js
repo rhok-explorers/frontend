@@ -81,6 +81,7 @@ angular.module('ngApp')
         }
         //
         socket.on("walking.data", function(walkings) {
+            console.log("Received: " + JSON.stringify(walkings));
             $scope.$apply(function() {
                 _.forEach(walkings, function(walking) {
                     console.log(walking);

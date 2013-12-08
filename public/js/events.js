@@ -7,17 +7,18 @@ var Events = {
             console.log(data);
         });
         //
-        socketio.emit("walking.set", {
+        /*socketio.emit("walking.set", {
             name: "Percorso 1",
             description: "Prova inserimento forzoso",
             level: "1"
-        });
+        });*/
         //
 
         //
+        /*
         socket.on("poi.data", function(data) {
             console.log("Poi data received: " + data);
-        })
+        })*/
     }
 
 }

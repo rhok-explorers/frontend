@@ -5,6 +5,23 @@
 
 var Walking = function(client, socket, next) {
 
+    var getWalkingData = function(data) {
+        console.log("Getting walking data with params: %j", data);
+        if (data.id) {
+            client.get("/walking/" + data.id, function(err, req, res, obj) {
+                console.log("Received walking (one)");
+                console.log("%j", obj);
+                socket.emit("walking.data", [obj]);
+            });
+        } else {
+            /*
+             client.get("/walking/center/" data.coord.lat, function(err, req, res, obj) {
+             console.log("Received walkings (many)");
+             console.log("%j", obj);
+             });*/
+        }
+    };
+
     console.log("Initializing walking api...");
     socket.on("walking.set", function(data) {
         console.log("Setting new walking...");
@@ -17,24 +34,11 @@ var Walking = function(client, socket, next) {
             console.log("New walking!");
             console.log("%j", obj);
             //
-            socket.emit("walking.data", [obj]);
+            getWalkingData(obj);
         });
     });
     //
-    socket.on("walking.get", function(data) {
-        if (data.id) {
-            client.get("/walking/" + data.id, function(err, req, res, obj) {
-                console.log("Received walking (one)");
-                console.log("%j", obj);
-            });
-        } else {
-            /*
-            client.get("/walking/center/" data.coord.lat, function(err, req, res, obj) {
-                console.log("Received walkings (many)");
-                console.log("%j", obj);
-            });*/
-        }
-    })
+    socket.on("walking.get", getWalkingData)
 
     next();
 
