@@ -23,21 +23,21 @@ html {
 }
 
 .nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
-   
-    background-color:  #d91313;
+	
+	background-color:  #d91313;
 }
 
 .btn-success:hover, .btn-success:focus, .btn-success:active, .btn-success.active,.btn-success {
-    
-    background-color: #d91313;
+	
+	background-color: #d91313;
 }
 
 .row h1 {
-		color: #d91313;
-		font-size: 4em;
-		font-family:"bombing";
-		letter-spacing:5px;
-		padding:0;
+	color: #d91313;
+	font-size: 4em;
+	font-family:"bombing";
+	letter-spacing:5px;
+	padding:0;
 }
 
 .nav {
@@ -46,7 +46,7 @@ html {
 }
 
 .form-horizontal {
-	border-style: none;
+	
 	border-left:2px solid #a0a0a0;
 	
 	padding:7px;
@@ -69,4 +69,5 @@ html {
 .step{
 	margin-top: 0;
 }
+
 
