@@ -15,6 +15,14 @@ var Poi = function(client, socket, next) {
         })
     });
 
+    socket.on("poi.get", function(data) {
+        console.log("Requested poi data: " + data);
+        client.get("/poi/" + data.id, function(err, req, res, obj) {
+            console.log("Poi data received: %j", obj);
+            socket.emit("poi.data", obj);
+        });
+    })
+
     next();
 
 }
