@@ -37,7 +37,7 @@
 
         <div id="walking_list" class="list-group">
             <div class="list-group-item" ng-repeat="route in routes" >
-                <button ng-click="selectWalking(route.id)"  class="btn" ng-class= "{'btn-success': route.id == selectedWalkingId }">{{ route.name }}</button>
+                <button ng-click="selectWalking(route.id)"  class="btn" ng-class= "{'btn-success': route.id == selectedWalkingId }">{{ route.name }}</button><span class="badge">{{route.count}}</span>
             </div>
         </div>
     </div>
@@ -88,6 +88,49 @@
     <!-- /.modal-dialog -->
 </div>
 <!-- /.modal -->
+
+
+
+
+
+<div class="modal fade" id="modalQuiz" tabindex="-1" role="dialog" aria-labelledby="modalQuizTitle" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="modalQuizTitle">Quiz!</h4>
+                </div>
+
+                <div class="modal-body">
+                    <div class="form-horizontal" role="form">
+                        <div class="form-group">
+                            <label for="" class="col-sm-3 control-label"> {{selectedPoi.question.text}}</label>
+
+                            <div class="col-sm-9" ng-repeat="answer in selectedPoi.question.answers">
+                                 <button type="button" class="btn btn-default" data-dismiss="modal">{{answer.text}}</button>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary"
+                    ng-click="addWalking()">
+                    Save changes
+                </button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+
+
+
+
 
 <div class="modal fade" id="modalPoi" tabindex="-1" role="dialog" aria-labelledby="modalPoiTitle"
 aria-hidden="true">
