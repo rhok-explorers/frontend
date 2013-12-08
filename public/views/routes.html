@@ -99,27 +99,41 @@
 
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h4 class="modal-title" id="modalQuizTitle">Quiz!</h4>
+                    <h4 class="modal-title" id="modalQuizTitle">Point of Interest</h4>
                 </div>
 
                 <div class="modal-body">
-                    <div class="form-horizontal" role="form">
-                        <div class="form-group">
-                            <label for="" class="col-sm-3 control-label"> {{selectedPoi.question.text}}</label>
+                    <h2 for="form-group" class="col-sm-3 control-label"> {{selectedPoi.name}}</h2>
+                     <label for="selectedPoiDesc" class="control-label">Descrizione: </label><p id="selectedPoiDesc">{{selectedPoi.description}}</p>
+                    <label for="selectedPoiLoc" class="control-label">Tipo percorso: </label>
 
-                            <div class="col-sm-9" ng-repeat="answer in selectedPoi.question.answers">
+                    <div class="progress col-sm-offset-3">
+                      <div class="progress-bar progress-bar-success" style="width: 40%">
+                        <span class="">40% Natura </span>
+                      </div>
+                      <div class="progress-bar progress-bar-warning" style="width: 35%">
+                        <span class="">35% Arte</span>
+                      </div>
+                      <div class="progress-bar progress-bar-danger" style="width: 25%">
+                        <span class="">25% Animali</span>
+                      </div>
+                    </div>
+
+
+                    <div class="form-horizontal" role="form" ng-show="selectedPoi.question">
+                        <h4 for="form-group" class="col-sm-3 control-label"> {{selectedPoi.question.text}}</h4>
+                        <div class="form-group" id="form-group">
+                            <div class="col-sm-6 col-sm-offset-3" ng-repeat="answer in selectedPoi.question.answers">
                                  <button type="button" class="btn btn-default" data-dismiss="modal">{{answer.text}}</button>
                             </div>
                         </div>
                         
                     </div>
+
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary"
-                    ng-click="addWalking()">
-                    Save changes
-                </button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                    
             </div>
         </div>
         <!-- /.modal-content -->
@@ -161,7 +175,7 @@ aria-hidden="true">
                 </div>
 
                 <div class="form-group">
-                    <label for="modalPoiLocationType" class="col-sm-3 control-label">Descrizione</label>
+                    <label for="modalPoiLocationType" class="col-sm-3 control-label">Tipo percorso</label>
 
                     <div class="col-sm-9">
                         <input type="text" class="form-control" id="modalPoiLocationType" ng-model="poi.locationType" placeholder="Natura, arte, ecc">
