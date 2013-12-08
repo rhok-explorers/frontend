@@ -23,6 +23,6 @@ var Events = {
 
 }
 
-var socket = io.connect("//localhost:3000");
+var socket = io.connect();
 
 Events.init(socket);
