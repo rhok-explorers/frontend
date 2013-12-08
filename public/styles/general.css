@@ -1,0 +1,63 @@
+html {
+	background: #f4fafc; /* Old browsers */
+	background: -moz-linear-gradient(top,  #f4fafc 0%, #98f2a3 40%, #07ea07 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f4fafc), color-stop(40%,#98f2a3), color-stop(100%,#07ea07)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #f4fafc 0%,#98f2a3 40%,#07ea07 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #f4fafc 0%,#98f2a3 40%,#07ea07 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #f4fafc 0%,#98f2a3 40%,#07ea07 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #f4fafc 0%,#98f2a3 40%,#07ea07 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f4fafc', endColorstr='#07ea07',GradientType=0 ); /* IE6-9 */
+	padding:10px;
+}
+@font-face {
+	font-family: bombing;
+	src: url('../fonts/Bombing.ttf');
+}
+
+
+.row {
+	margin-top: 15px;
+}
+
+.nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
+   
+    background-color:  #d91313;
+}
+
+.btn-success:hover, .btn-success:focus, .btn-success:active, .btn-success.active,.btn-success {
+    
+    background-color: #d91313;
+}
+
+.row h1 {
+		color: #d91313;
+		font-size: 6em;
+		font-family:"bombing";
+}
+
+.nav {
+	display: inline-block;
+	float: right;
+}
+
+.form-horizontal {
+	border-style: none;
+	border-left:2px solid #a0a0a0;
+	
+	padding:7px;
+	padding-left:15px;
+}
+
+
+/*** Viaggio.html ***/
+#path {
+	background-image:url('../images/path.png');
+	background-repeat:no-repeat;
+	background-position:right; 
+	height: 50px;
+}
+
+.step{
+	margin-top: 0;
+}
+
