@@ -37,7 +37,7 @@
 
         <div id="walking_list" class="list-group">
             <div class="list-group-item" ng-repeat="route in routes" >
-                <button ng-click="selectWalking(route.id)"  class="btn" ng-class= "{'btn-success': route.id == selectedWalkingId }">{{ route.name }}</button><span class="badge">{{route.count}}</span>
+                <button ng-click="selectWalking(route)"  class="btn" ng-class= "{'btn-success': route.id == selectedWalkingId }">{{ route.name }}</button><span class="badge">{{route.count}}</span>
             </div>
         </div>
     </div>
@@ -47,7 +47,7 @@
 
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h4 class="modal-title" id="myModalLabel">Titolo</h4>
+                    <h4 class="modal-title" id="myModalLabel">Aggiungi Percorso</h4>
                 </div>
 
                 <div class="modal-body">
@@ -76,11 +76,9 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Annulla</button>
                     <button type="button" class="btn btn-primary"
-                    ng-click="addWalking()">
-                    Save changes
-                </button>
+                    ng-click="addWalking()">Salva e Chiudi</button>
             </div>
         </div>
         <!-- /.modal-content -->
@@ -99,7 +97,7 @@
 
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h4 class="modal-title" id="modalQuizTitle">Point of Interest</h4>
+                    <h4 class="modal-title" id="modalQuizTitle">{{ selectedWalking.name }}</h4>
                 </div>
 
                 <div class="modal-body">
@@ -132,7 +130,7 @@
 
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Annulla</button>
                     
             </div>
         </div>
@@ -209,7 +207,7 @@ aria-hidden="true">
 
                     <div class="form-group">
                         <div class="col-sm-offset-7 col-sm-5">
-                            <button  class="btn btn-primary " ng-click="addAnswer()">Aggiunti possibile risposta</button>
+                            <button  class="btn btn-primary " ng-click="addAnswer()">Aggiungi possibile risposta</button>
                         </div>
                     </div>
 
@@ -231,8 +229,8 @@ aria-hidden="true">
             </div>
         </div>
         <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary" ng-click="addPoi()">Save changes </button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">Annulla</button>
+            <button type="button" class="btn btn-primary" ng-click="addPoi()">Salva e Chiudi</button>
         </div>
     </div>
     <!-- /.modal-content -->
