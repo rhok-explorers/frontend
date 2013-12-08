@@ -61,10 +61,12 @@ angular.module('ngApp')
         }
         //
         $scope.addPoi = function() {
+            var coords = $scope.poi.coords;
             console.log($scope.poi);
+            $scope.poi.coords = [coords.pb, coords.qb];
             socket.emit("poi.set", { poi: $scope.poi, walkingId: $scope.selectedWalkingId });
             $('#modalPoi').modal('hide');
-            $scope.placeMarker($scope.poi.coords);
+            /*$scope.placeMarker(coords);*/
             $scope.poi = {};
         }
         //
@@ -91,7 +93,7 @@ angular.module('ngApp')
             $scope.$apply(function() {
                 console.log("Received poi data: " + JSON.stringify(poi));
                 // add poi to map
-                $scope.placeMarker(poi.coords, {
+                $scope.placeMarker(new google.maps.LatLng(poi.coords[0] + 0, poi.coords[1] + 0), {
                     name: poi.name,
                     description: poi.description
                 });
