@@ -57,9 +57,10 @@ angular.module('ngApp')
         $scope.selectedWalkingId = null;
         $scope.selectedPoi = null;
         //
-        $scope.selectWalking = function(walkingId) {
-            $scope.selectedWalkingId = walkingId;
-            socket.emit("walking.get", {id: walkingId, isDetails: true});
+        $scope.selectWalking = function(walking) {
+            $scope.selectedWalkingId = walking.id;
+            $scope.selectedWalking = walking;
+            socket.emit("walking.get", {id: walking.id, isDetails: true});
         };
         //
         $scope.walking = {
