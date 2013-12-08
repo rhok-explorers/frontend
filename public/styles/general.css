@@ -40,6 +40,7 @@ html {
 
 .nav {
 	padding-top: 2em;
+	float: right;
 }
 
 .form-horizontal {
