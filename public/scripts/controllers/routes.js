@@ -2,6 +2,8 @@
 
 angular.module('ngApp')
     .controller('RoutesCtrl', function ($rootScope, $scope) {
+        // first step: load walkings!
+        socket.emit("walking.get", {});
         //
         var map_canvas = document.getElementById('map_canvas');
         var map_options = {
@@ -9,6 +11,7 @@ angular.module('ngApp')
             zoom: 12,
             mapTypeId: google.maps.MapTypeId.HYBRID
         };
+        $scope.markers = [];
 
         var map = new google.maps.Map(map_canvas, map_options);
         //
@@ -31,6 +34,14 @@ angular.module('ngApp')
                 position: location,
                 map: map
             });
+            $scope.markers.push(marker);
+        }
+        //
+        $scope.cleanMarkers = function() {
+            _.forEach($scope.markers, function(marker) {
+                marker.setMap(null);
+            });
+            $scope.markers = [];
         }
         //
         initialize();
@@ -39,6 +50,7 @@ angular.module('ngApp')
         //
         $scope.selectWalking = function(walkingId) {
             $scope.selectedWalkingId = walkingId;
+            socket.emit("walking.get", {id: walkingId, isDetails: true});
         };
         //
         $scope.walking = {
@@ -83,10 +95,22 @@ angular.module('ngApp')
         socket.on("walking.data", function(walkings) {
             console.log("Received: " + JSON.stringify(walkings));
             $scope.$apply(function() {
-                _.forEach(walkings, function(walking) {
-                    console.log(walking);
-                    $scope.routes.push(walking);
-                });
+                var isDetails = walkings[0].isDetails || false;
+                if (!isDetails) {
+                    console.log("Is not details");
+                    _.forEach(walkings, function(walking) {
+                        console.log(walking);
+                        $scope.routes.push(walking);
+                    });
+                } else {
+                    console.log("Is details");
+                    $scope.cleanMarkers();
+                    // carico i poi solo se ho selezionato un walking
+                    _.forEach(walkings[0].pois, function(poi) {
+                        socket.emit("poi.get", {id: poi.id});
+                        // TODO: lazy loading dei poi!
+                    })
+                }
             });
         });
         //

@@ -11,14 +11,15 @@ var Walking = function(client, socket, next) {
             client.get("/walking/" + data.id, function(err, req, res, obj) {
                 console.log("Received walking (one)");
                 console.log("%j", obj);
+                obj.isDetails = data.isDetails;
                 socket.emit("walking.data", [obj]);
             });
         } else {
-            /*
-             client.get("/walking/center/" data.coord.lat, function(err, req, res, obj) {
-             console.log("Received walkings (many)");
-             console.log("%j", obj);
-             });*/
+            client.get("/walking", function(err, req, res, obj) {
+                console.log("Received walkings (many)");
+                console.log("%j", obj);
+                socket.emit("walking.data", obj);
+            });
         }
     };
 
