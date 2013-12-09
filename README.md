@@ -23,7 +23,10 @@ Open browser at the location specified in grunt output.
 
 You can deploy to heroku this way:
 
-    heroku create --region eu
+    # you may use a different name here:
+    heroku create littleexplorers-frontend --region eu 
     git push heroku master
 
-After a ton of output, you will be able to connect to your web deployed app just typing the url prompted from git at execution end.
+After a ton of output, you will be able to connect to your web deployed app just typing the url prompted from git at execution end, in example:
+
+    http://littleexplorers-frontend.herokuapp.com
